@@ -1,0 +1,22 @@
+components/
+node_modules
+app/components
+# Ignore Java Build
+target/
+work/
+*.class
+
+# Ignore Intellij Idea project files
+*.iml
+*.ipr
+.idea
+atlassian-ide-plugin.xml
+out/
+
+# Ignore Eclipse project files
+.settings
+.project
+.classpath
+
+# Ignore MacOSX files
+.DS_Store
