@@ -6,7 +6,6 @@ angular.module('app', [
     'ngCookies',
     'ngMessages',
     'ngSanitize',
-    'ngTouch',
     'ngStorage',
     'ui.router',
     'ui.bootstrap',
