@@ -1,23 +1,39 @@
 'use strict';
 
-/* Controllers */
-  // signin controller
-app.controller('SigninFormController', ['$scope', '$http', '$state', function($scope, $http, $state) {
-    $scope.user = {};
-    $scope.authError = null;
-    $scope.login = function() {
-      $scope.authError = null;
-      // Try to login
-      $http.post('api/login', {email: $scope.user.email, password: $scope.user.password})
-      .then(function(response) {
-        if ( !response.data.user ) {
-          $scope.authError = 'Email or Password not right';
-        }else{
-          $state.go('app.dashboard-v1');
+app.controller('SigninFormController', ['$scope', '$http', '$state', '$log', '$base64', '$translate', 'ISO_CONST', 'httpStatusCodes',
+    function ($scope, $http, $state, $log, $base64, $translate, ISO_CONST, httpStatusCodes) {
+        var vm = this;
+
+        vm.user = {};
+        vm.authError = null;
+        vm.login = login;
+
+
+        ////////////
+
+        function login() {
+            vm.authError = null;
+
+            var req = {
+                method: 'POST',
+                url: ISO_CONST.AUTH_BASE_URL + "/oauth/token",
+                params: {grant_type: 'password', username: vm.user.username, password: vm.user.password},
+                paramSerializer: '$httpParamSerializerJQLike',
+                headers: {
+                    'Authorization': 'Basic ' + $base64.encode("my-trusted-client:secret")
+                }
+            };
+
+            $http(req).then(function (success) {
+                if (!success.data.access_token) {
+                    vm.authError = $translate.instant("msg.SERVER_ERROR");
+                } else {
+                    $state.go('app.dashboard');
+                }
+            }, function (x) {
+                if (x.status == httpStatusCodes.BAD_REQUEST)
+                    vm.authError = $translate.instant("msg.AUTH_ERROR");
+            });
         }
-      }, function(x) {
-        $scope.authError = 'Server Error';
-      });
-    };
-  }])
-;
+
+    }]);

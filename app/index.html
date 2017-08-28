@@ -21,8 +21,9 @@
 
     <!-- #END Css -->
 
-    <link ng-if = "app.settings.arDir" rel="stylesheet" href="components/bootstrap-rtl/dist/css/bootstrap-rtl.min.css" type="text/css" />
-    <link ng-if = "app.settings.arDir" rel="stylesheet" href="css/app.rtl.css" type="text/css" />
+    <link ng-if="app.settings.arDir" rel="stylesheet" href="components/bootstrap-rtl/dist/css/bootstrap-rtl.min.css"
+          type="text/css"/>
+    <link ng-if="app.settings.arDir" rel="stylesheet" href="css/app.rtl.css" type="text/css"/>
 
 </head>
 
@@ -69,8 +70,15 @@
 <!-- Token-based AngularJS Authentication -->
 <script src="components/satellizer/dist/satellizer.js"></script>
 
+<!-- encode - decode base64 -->
+<script src="components/angular-base64/angular-base64.js"></script>
+
+<!-- HTTP status codes -->
+<script src="components/angular-status-codes/status_codes.js"></script>
+
 <!-- App Configuration -->
 <script src="js/app.js"></script>
+<script src="js/config.constant.js"></script>
 <script src="js/config.lazyload.js"></script>
 <script src="js/config.router.js"></script>
 <script src="js/main.js"></script>

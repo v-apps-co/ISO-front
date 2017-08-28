@@ -33,6 +33,8 @@
     "angular-translate": "~2.5.2",
     "angular-translate-loader-static-files": "~2.5.2",
     "angular-translate-storage-cookie": "~2.5.2",
-    "angular-translate-storage-local": "~2.5.2"
+    "angular-translate-storage-local": "~2.5.2",
+    "angular-base64":"2.0.4",
+    "angular-status-codes":"~1.0.2"
   }
 }

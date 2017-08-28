@@ -12,11 +12,10 @@ angular.module('app').controller('AppCtrl', ['$scope', '$translate', '$localStor
         if (isSmartDevice($window)) {
             angular.element($window.document.body).addClass('smart')
         }
-        ;
 
         // config
         $scope.app = {
-            name: 'ISO',
+            name: 'ISO Web app',
             version: '0.0.1',
             // for chart colors
             color: {
@@ -39,9 +38,9 @@ angular.module('app').controller('AppCtrl', ['$scope', '$translate', '$localStor
                 asideFolded: false,
                 asideDock: false,
                 container: false,
-                arDir : false
+                arDir: false
             }
-        }
+        };
 
         // save settings to local storage
         if (angular.isDefined($localStorage.settings)) {
@@ -70,9 +69,9 @@ angular.module('app').controller('AppCtrl', ['$scope', '$translate', '$localStor
             // You can change the language during runtime
             $translate.use(langKey);
             $scope.lang.isopen = !$scope.lang.isopen;
-            if(langKey == 'ar'){
+            if (langKey == 'ar') {
                 $scope.app.settings.arDir = true;
-            }else{
+            } else {
                 $scope.app.settings.arDir = false;
             }
         };

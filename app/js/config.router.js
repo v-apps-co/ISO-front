@@ -41,6 +41,8 @@ angular.module('app')
                 .state('access.signin', {
                     url: '/signin',
                     templateUrl: 'tpl/page_signin.html',
+                    controller:'SigninFormController',
+                    controllerAs:'signin',
                     resolve: load(['js/controllers/signin.js'])
                 })
                 .state('access.forgotpwd', {

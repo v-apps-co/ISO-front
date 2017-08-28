@@ -14,7 +14,9 @@ angular.module('app', [
     'ui.jq',
     'oc.lazyLoad',
     'pascalprecht.translate',
-    'satellizer'
+    'satellizer',
+    'base64',
+    'httpStatusCodes'
 ]);
 
 
