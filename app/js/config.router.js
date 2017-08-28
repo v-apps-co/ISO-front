@@ -5,13 +5,13 @@
  */
 angular.module('app')
     .run(['$rootScope', '$state', '$stateParams',
-            function ($rootScope, $state, $stateParams) {
-                $rootScope.$state = $state;
-                $rootScope.$stateParams = $stateParams;
-            }
-        ])
-    .config(['$stateProvider', '$urlRouterProvider', 'JQ_CONFIG', 'MODULE_CONFIG',
-        function ($stateProvider, $urlRouterProvider, JQ_CONFIG, MODULE_CONFIG) {
+        function ($rootScope, $state, $stateParams) {
+            $rootScope.$state = $state;
+            $rootScope.$stateParams = $stateParams;
+        }
+    ])
+    .config(['$stateProvider', '$urlRouterProvider', '$authProvider', 'JQ_CONFIG', 'MODULE_CONFIG', 'ISO_CONST',
+        function ($stateProvider, $urlRouterProvider, $authProvider, JQ_CONFIG, MODULE_CONFIG, ISO_CONST) {
 
             // Logic
             var layout = "tpl/app.html";
@@ -41,8 +41,8 @@ angular.module('app')
                 .state('access.signin', {
                     url: '/signin',
                     templateUrl: 'tpl/page_signin.html',
-                    controller:'SigninFormController',
-                    controllerAs:'signin',
+                    controller: 'SigninFormController',
+                    controllerAs: 'signin',
                     resolve: load(['js/controllers/signin.js'])
                 })
                 .state('access.forgotpwd', {
@@ -87,6 +87,10 @@ angular.module('app')
                 }
             }
 
+            // satellizer configuration
+            $authProvider.baseUrl = ISO_CONST.AUTH_BASE_URL;
+            $authProvider.loginUrl = 'oauth/token';
+            $authProvider.tokenName = 'access_token';
 
         }
     ]);
