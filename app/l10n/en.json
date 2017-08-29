@@ -1,4 +1,8 @@
 {
+  "button" : {
+    "save" : "save",
+    "cancel" : "cancel"
+  },
   "header": {
     "navbar": {
       "UPLOAD": "Upload",
@@ -19,6 +23,25 @@
       "EMAIL": "Email",
       "components": {
         "COMPONENTS": "Components",
+        "knowledgeManagement" :{
+          "KNOWLEDGE_MANAGEMENT_PROCEDURES" :"Knowledge Management",
+          "KNOWLEDGE_MANAGEMENT" :"Knowledge Management",
+          "ADD_KNOWLEDGE":"Add Knowledge",
+          "KNOWLEDGE_NAME":"Knowledge name",
+          "KNOWLEDGE_DEPT":"Knowledge Department",
+          "KNOWLEDGE_CLASS":"Knowledge Classification",
+          "KNOWLEDGE_AVAILABLE":"Available",
+          "KNOWLEDGE_NEED":"Department need",
+          "KNOWLEDGE_KIND":"Knowledge kind",
+          "KNOWLEDGE_CLEAR":"Clear Knowledge",
+          "KNOWLEDGE_EMBEDDED":"Embedded Knowledge",
+          "KNOWLEDGE_HOW":"Knowledge is",
+          "KNOWLEDGE_ELEC":"Electronic",
+          "KNOWLEDGE_PAPER":"Paper",
+          "KNOWLEDGE_PLACE":"Saved Place",
+          "KNOWLEDGE_NOTES":"Notes",
+          "KNOWLEDGE_ADD":"Add Knowledge"
+        },
         "pages": {
           "PAGES": "Pages",
           "PROFILE": "Profile",

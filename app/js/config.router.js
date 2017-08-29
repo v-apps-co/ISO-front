@@ -33,6 +33,20 @@ angular.module('app')
                     url: '/dashboard',
                     templateUrl: 'tpl/app_dashboard.html'
                 })
+                .state('app.knowledgeManagement', {
+                    url: '/knowledge/management',
+                    templateUrl: 'tpl/knowledge_management/knowledge_management.html',
+                    controller: 'knowledgeManagementController',
+                    controllerAs: 'knowledgeManagement',
+                    resolve: load(['js/controllers/knowledge_management/knowledge_management.js'])
+                })
+                .state('app.addKnowledge', {
+                    url: '/knowledge/add',
+                    templateUrl: 'tpl/knowledge_management/add_knowledge.html',
+                    controller: 'addKnowledgeController',
+                    controllerAs: 'AddKnowledge',
+                    resolve: load(['js/controllers/knowledge_management/add_knowledge.js'])
+                })
                 // others
                 .state('access', {
                     url: '/access',

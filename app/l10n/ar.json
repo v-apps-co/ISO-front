@@ -1,4 +1,8 @@
 {
+  "button" : {
+    "save" : "حفظ",
+    "cancel" : "إلغاء"
+  },
   "header": {
     "navbar": {
       "UPLOAD": "Upload",
@@ -18,6 +22,25 @@
       "DASHBOARD": "لوحة التحكم",
       "EMAIL": "البريد الالكتروني",
       "components": {
+        "knowledgeManagement" :{
+          "KNOWLEDGE_MANAGEMENT_PROCEDURES" :"إجراءات إدارة المعرفة",
+          "KNOWLEDGE_MANAGEMENT" :"إدارة المعرفة",
+          "ADD_KNOWLEDGE":"إضافة معرفة",
+          "KNOWLEDGE_NAME":"إسم المعرفة",
+          "KNOWLEDGE_DEPT":"إدارة المعرفة",
+          "KNOWLEDGE_CLASS":"تصنيف المعرفة",
+          "KNOWLEDGE_AVAILABLE":"معرفة متوفرة",
+          "KNOWLEDGE_NEED":"تحتاج إليها الإدارة",
+          "KNOWLEDGE_KIND":"نوع المعرفة",
+          "KNOWLEDGE_CLEAR":"صريحة",
+          "KNOWLEDGE_EMBEDDED":"ضمنية",
+          "KNOWLEDGE_HOW":"صيغة المعرفة",
+          "KNOWLEDGE_ELEC":"إلكترونية",
+          "KNOWLEDGE_PAPER":"ورقية",
+          "KNOWLEDGE_PLACE":"مكان الحفظ",
+          "KNOWLEDGE_NOTES":"ملاحظات",
+          "KNOWLEDGE_ADD":"إضافة"
+        },
         "pages": {
           "PAGES": "الصفحات",
           "SIGNIN": "دخول",

@@ -18,15 +18,15 @@
         <i class="fa fa-fw fa-angle-right text"></i>
         <i class="fa fa-fw fa-angle-down text-active"></i>
       </span>
-            <i class="glyphicon glyphicon-file icon"></i>
+         <i class="glyphicon glyphicon-file icon"></i>
             <span translate="aside.nav.components.pages.PAGES">Pages</span>
         </a>
         <ul class="nav nav-sub dk">
-            <li class="nav-sub-header">
+            <!--<li class="nav-sub-header">
                 <a href>
                     <span translate="aside.nav.components.pages.PAGES">Pages</span>
                 </a>
-            </li>
+            </li>-->
             <li>
                 <a ui-sref="access.signin">
                     <span translate="aside.nav.components.pages.SIGNIN">Signin</span>
@@ -42,6 +42,29 @@
                     <span translate="aside.nav.components.pages.404">404</span>
                 </a>
             </li>
+        </ul>
+    </li>
+    <li ng-class="{active:$state.includes('app.knowledgeManagement')}">
+        <a href class="auto">
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+            <i class="glyphicon glyphicon-file icon"></i>
+            <span translate="aside.nav.components.knowledgeManagement.KNOWLEDGE_MANAGEMENT_PROCEDURES"></span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li>
+                <a ui-sref="app.knowledgeManagement">
+                    <span translate="aside.nav.components.knowledgeManagement.KNOWLEDGE_MANAGEMENT"></span>
+                </a>
+            </li>
+            <li>
+                <a ui-sref="app.addKnowledge">
+                    <span translate="aside.nav.components.knowledgeManagement.ADD_KNOWLEDGE"></span>
+                </a>
+            </li>
+
         </ul>
     </li>
 
