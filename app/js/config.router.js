@@ -31,7 +31,11 @@ angular.module('app')
                 })
                 .state('app.dashboard', {
                     url: '/dashboard',
-                    templateUrl: 'tpl/app_dashboard.html'
+                    templateUrl: 'tpl/app_dashboard.html',
+                    controller: 'DashboardController',
+                    controllerAs: 'dashboard',
+                    resolve: load(['js/controllers/dashboardController.js'])
+
                 })
                 // others
                 .state('access', {
@@ -56,8 +60,11 @@ angular.module('app')
 
             function load(srcs, callback) {
                 return {
-                    deps: ['$ocLazyLoad', '$q',
-                        function ($ocLazyLoad, $q) {
+                    deps: ['$ocLazyLoad', '$q', '$auth', '$log',
+                        function ($ocLazyLoad, $q, $auth, $log) {
+
+                            $log.info($auth.isAuthenticated());
+
                             var deferred = $q.defer();
                             var promise = false;
                             srcs = angular.isArray(srcs) ? srcs : srcs.split(/\s+/);

@@ -46,6 +46,7 @@
   },
   "common": {
     "USERNAME": "Username",
-    "PASSWORD": "Password"
+    "PASSWORD": "Password",
+    "LOGOUT":"Logout"
   }
 }
