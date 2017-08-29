@@ -4,10 +4,20 @@
  * Config for the router
  */
 angular.module('app')
-    .run(['$rootScope', '$state', '$stateParams',
-        function ($rootScope, $state, $stateParams) {
+    .run(['$rootScope', '$state', '$stateParams', '$log', '$auth',
+        function ($rootScope, $state, $stateParams, $log, $auth) {
             $rootScope.$state = $state;
             $rootScope.$stateParams = $stateParams;
+
+            $rootScope.$on("$stateChangeError", function (event, toState, toParams, fromState, fromParams) {
+                if ($auth.isAuthenticated()) {
+                    $log.info('$stateChangeError app.dashboard');
+                    $state.go("app.dashboard");
+                } else {
+                    $log.info('$stateChangeError access.signin');
+                    $state.go("access.signin");
+                }
+            });
         }
     ])
     .config(['$stateProvider', '$urlRouterProvider', '$authProvider', 'JQ_CONFIG', 'MODULE_CONFIG', 'ISO_CONST',
@@ -34,7 +44,7 @@ angular.module('app')
                     templateUrl: 'tpl/app_dashboard.html',
                     controller: 'DashboardController',
                     controllerAs: 'dashboard',
-                    resolve: load(['js/controllers/dashboardController.js'])
+                    resolve: load(['js/controllers/dashboardController.js'], 'app.dashboard')
 
                 })
                 .state('app.knowledgeManagement', {
@@ -61,7 +71,7 @@ angular.module('app')
                     templateUrl: 'tpl/page_signin.html',
                     controller: 'SigninFormController',
                     controllerAs: 'signin',
-                    resolve: load(['js/controllers/signin.js'])
+                    resolve: load(['js/controllers/signin.js'], 'access.signin')
                 })
                 .state('access.forgotpwd', {
                     url: '/forgotpwd',
@@ -72,12 +82,22 @@ angular.module('app')
                     templateUrl: 'tpl/page_404.html'
                 });
 
-            function load(srcs, callback) {
+            function load(srcs, state, callback) {
                 return {
-                    deps: ['$ocLazyLoad', '$q', '$auth', '$log',
-                        function ($ocLazyLoad, $q, $auth, $log) {
+                    deps: ['$ocLazyLoad', '$q', '$log', '$auth',
+                        function ($ocLazyLoad, $q, $log, $auth) {
 
-                            $log.info($auth.isAuthenticated());
+                            if (!$auth.isAuthenticated() && state != 'access.signin') {
+                                $log.info("!$auth.isAuthenticated() && state != 'access.signin'");
+                                return $q.reject();
+                            }
+
+                            if ($auth.isAuthenticated() && state === 'access.signin') {
+                                $log.info("$auth.isAuthenticated() && state === 'access.signin'");
+                                return $q.reject();
+                            }
+
+                            $log.info('in deps');
 
                             var deferred = $q.defer();
                             var promise = false;
@@ -104,6 +124,8 @@ angular.module('app')
                             return callback ? promise.then(function () {
                                 return callback();
                             }) : promise;
+
+
                         }]
                 }
             }
