@@ -2,8 +2,14 @@
 
 /* Controllers */
 
-angular.module('app').controller('AppCtrl', ['$scope', '$translate', '$localStorage', '$window',
-    function ($scope, $translate, $localStorage, $window) {
+angular.module('app').controller('AppCtrl', ['$scope', '$translate', '$localStorage', '$window', '$auth', '$log', '$state',
+    function ($scope, $translate, $localStorage, $window, $auth, $log, $state) {
+
+        $scope.logout = logout;
+        $scope.setLang = setLang;
+
+        /////////////////////////////////////
+
         // add 'ie' classes to html
         var isIE = !!navigator.userAgent.match(/MSIE/i);
         if (isIE) {
@@ -63,7 +69,7 @@ angular.module('app').controller('AppCtrl', ['$scope', '$translate', '$localStor
         $scope.lang = {isopen: false};
         $scope.langs = {en: 'English', ar: 'عربي'};
         $scope.selectLang = $scope.langs[$translate.proposedLanguage()] || "English";
-        $scope.setLang = function (langKey, $event) {
+        function setLang(langKey, $event) {
             // set the current lang
             $scope.selectLang = $scope.langs[langKey];
             // You can change the language during runtime
@@ -74,13 +80,18 @@ angular.module('app').controller('AppCtrl', ['$scope', '$translate', '$localStor
             } else {
                 $scope.app.settings.arDir = false;
             }
-        };
+        }
 
         function isSmartDevice($window) {
             // Adapted from http://www.detectmobilebrowsers.com
             var ua = $window['navigator']['userAgent'] || $window['navigator']['vendor'] || $window['opera'];
             // Checks for iOs, Android, Blackberry, Opera Mini, and Windows mobile devices
             return (/iPhone|iPod|iPad|Silk|Android|BlackBerry|Opera Mini|IEMobile/).test(ua);
+        }
+
+        function logout() {
+            $auth.logout();
+            $state.go('access.signin');
         }
 
     }]);
