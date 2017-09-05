@@ -99,13 +99,13 @@ angular.module('app')
                     'components/angular-bootstrap-nav-tree/dist/abn_tree.css'
                 ]
             },
-            {
+           /* {
                 name: 'toaster',
                 files: [
                     'components/angularjs-toaster/toaster.js',
                     'components/angularjs-toaster/toaster.css'
                 ]
-            },
+            },*/
             {
                 name: 'textAngular',
                 files: [

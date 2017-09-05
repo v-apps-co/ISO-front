@@ -1,4 +1,8 @@
+
+<toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+
 <div class="hbox hbox-auto-xs hbox-auto-sm" ng-init="app.settings.asideFolded = false; app.settings.asideDock = false;">
+
     <div class="col">
         <!-- main header -->
         <div class="bg-light lter b-b wrapper-md">
@@ -19,7 +23,7 @@
                                translate="page.knowledgeManagement.KNOWLEDGE_NAME"></label>
 
                         <div class="col-sm-8">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" ng-model="kn.name">
                         </div>
                     </div>
 
@@ -28,11 +32,12 @@
                                translate="page.knowledgeManagement.KNOWLEDGE_DEPT"></label>
 
                         <div class="col-sm-8">
-                            <select name="account" class="form-control m-b">
-                                <option>option 1</option>
-                                <option>option 2</option>
-                                <option>option 3</option>
-                                <option>option 4</option>
+                            <select name="account" class="form-control m-b" ng-model="kn.dept">
+                                <option></option>
+                                <option>Department 1</option>
+                                <option>Department 2</option>
+                                <option>Department 3</option>
+                                <option>Department 4</option>
                             </select>
                         </div>
                     </div>
@@ -46,13 +51,14 @@
                             <div class="radio-inline">
                                 <label>
                                     <input type="radio" name="optionsRadios10" id="optionsRadios10" value="option1"
-                                           checked>
+                                           checked ng-model="kn.available">
                                     <span translate="page.knowledgeManagement.KNOWLEDGE_AVAILABLE"></span>
                                 </label>
                             </div>
                             <div class="radio-inline">
                                 <label>
-                                    <input type="radio" name="optionsRadios10" id="optionsRadios20" value="option2">
+                                    <input type="radio" name="optionsRadios10" id="optionsRadios20" value="option2"
+                                           ng-model="kn.need">
                                     <span translate="page.knowledgeManagement.KNOWLEDGE_NEED"></span>
                                 </label>
                             </div>
@@ -68,13 +74,14 @@
                             <div class="radio-inline">
                                 <label>
                                     <input type="radio" name="optionsRadios100" id="optionsRadios100" value="option1"
-                                           checked>
+                                           checked ng-model="kn.clear">
                                     <span translate="page.knowledgeManagement.KNOWLEDGE_CLEAR"></span>
                                 </label>
                             </div>
                             <div class="radio-inline">
                                 <label>
-                                    <input type="radio" name="optionsRadios100" id="optionsRadios200" value="option2">
+                                    <input type="radio" name="optionsRadios100" id="optionsRadios200" value="option2"
+                                           ng-model="kn.embedded">
                                     <span translate="page.knowledgeManagement.KNOWLEDGE_EMBEDDED"></span>
                                 </label>
                             </div>
@@ -90,13 +97,14 @@
                             <div class="radio-inline">
                                 <label>
                                     <input type="radio" name="optionsRadios1000" id="optionsRadios1000" value="option1"
-                                           checked>
+                                           checked ng-model="kn.elec">
                                     <span translate="page.knowledgeManagement.KNOWLEDGE_ELEC"></span>
                                 </label>
                             </div>
                             <div class="radio-inline">
                                 <label>
-                                    <input type="radio" name="optionsRadios1000" id="optionsRadios2000" value="option2">
+                                    <input type="radio" name="optionsRadios1000" id="optionsRadios2000" value="option2"
+                                           ng-model="kn.paper">
                                     <span translate="page.knowledgeManagement.KNOWLEDGE_PAPER"></span>
                                 </label>
                             </div>
@@ -108,7 +116,7 @@
                                translate="page.knowledgeManagement.KNOWLEDGE_PLACE"></label>
 
                         <div class="col-sm-8">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" ng-model="kn.place">
                         </div>
                     </div>
 
@@ -117,7 +125,7 @@
                                translate="page.knowledgeManagement.KNOWLEDGE_NOTES"></label>
 
                         <div class="col-sm-8">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" ng-model="kn.notes">
                         </div>
                     </div>
 
@@ -125,10 +133,10 @@
                     <div class="line line-dashed b-b line-lg pull-in"></div>
                     <div class="form-group">
                         <div class="col-sm-4 col-sm-offset-2">
-                            <button type="button" class="btn btn-primary">
+                            <button type="button" class="btn btn-primary" ng-click="saveKnowledge()">
                                 <span translate="common.SAVE"></span>
                             </button>
-                            <button type="button" class="btn btn-danger">
+                            <button type="button" class="btn btn-danger" ng-click="resetKnowledge()">
                                 <span translate="common.CANCEL"></span>
                             </button>
                         </div>

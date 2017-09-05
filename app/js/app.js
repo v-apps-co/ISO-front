@@ -16,7 +16,8 @@ angular.module('app', [
     'pascalprecht.translate',
     'satellizer',
     'base64',
-    'httpStatusCodes'
+    'httpStatusCodes',
+    'toaster'
 ]);
 
 

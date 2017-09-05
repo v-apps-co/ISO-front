@@ -281,3 +281,10 @@ div.dataTables_filter {
   filter: FlipH;
   -ms-filter: "FlipH";
 }
+
+
+.toast-top-right {
+  top: 12px;
+  left:12px !important;
+  right:auto !important;
+}
