@@ -264,3 +264,20 @@
   right: auto;
   left: -1px;
 }
+
+div.dataTables_paginate {
+  text-align: left !important;
+}
+
+div.dataTables_filter {
+  text-align: left !important;
+}
+
+.collapse-nav{
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}

@@ -5221,3 +5221,15 @@ a.text-#000000:hover {
     background-color: #7266ba;
   }
 }
+
+div.dataTables_paginate {
+  text-align: right !important;
+}
+
+div.dataTables_filter {
+  text-align: right !important;
+}
+
+.collapse-nav{
+
+}

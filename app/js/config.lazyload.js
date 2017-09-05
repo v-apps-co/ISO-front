@@ -30,7 +30,7 @@ angular.module('app')
                 'components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css'],
             wysiwyg: ['components/bootstrap-wysiwyg/bootstrap-wysiwyg.js',
                 'components/bootstrap-wysiwyg/external/jquery.hotkeys.js'],
-            dataTable: ['components/datatables/media/js/jquery.dataTables.min.js',
+            dataTable: ['components/datatables.net/js/jquery.dataTables.min.js',
                 'components/plugins/integration/bootstrap/3/dataTables.bootstrap.js',
                 'components/plugins/integration/bootstrap/3/dataTables.bootstrap.css'],
             vectorMap: ['components/bower-jvectormap/jquery-jvectormap-1.2.2.min.js',
