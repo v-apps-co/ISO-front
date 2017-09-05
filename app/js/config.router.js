@@ -11,10 +11,12 @@ angular.module('app')
 
             $rootScope.$on("$stateChangeError", function (event, toState, toParams, fromState, fromParams) {
                 if ($auth.isAuthenticated()) {
-                    $log.info('$stateChangeError app.dashboard');
+                    //$log.info('$stateChangeError app.dashboard');
+                    event.preventDefault();
                     $state.go("app.dashboard");
                 } else {
-                    $log.info('$stateChangeError access.signin');
+                    //$log.info('$stateChangeError access.signin');
+                    event.preventDefault();
                     $state.go("access.signin");
                 }
             });
@@ -23,21 +25,20 @@ angular.module('app')
     .config(['$stateProvider', '$urlRouterProvider', '$authProvider', 'JQ_CONFIG', 'MODULE_CONFIG', 'ISO_CONST',
         function ($stateProvider, $urlRouterProvider, $authProvider, JQ_CONFIG, MODULE_CONFIG, ISO_CONST) {
 
-            // Logic
-            var layout = "tpl/app.html";
-            if (window.location.href.indexOf("material") > 0) {
-                layout = "tpl/blocks/material.layout.html";
-                $urlRouterProvider.otherwise('/app/dashboard');
-            } else {
-                $urlRouterProvider.otherwise('/app/dashboard');
-            }
+            //$urlRouterProvider.otherwise('/app/dashboard');
+
+            // https://github.com/angular-ui/ui-router/issues/2183
+            $urlRouterProvider.otherwise(function ($injector) {
+                var $state = $injector.get("$state");
+                $state.go('app.dashboard');
+            });
 
             // Navigation Rules
             $stateProvider
                 .state('app', {
                     abstract: true,
                     url: '/app',
-                    templateUrl: layout
+                    templateUrl: 'tpl/app.html'
                 })
                 .state('app.dashboard', {
                     url: '/dashboard',
@@ -45,9 +46,20 @@ angular.module('app')
                     controller: 'DashboardController',
                     controllerAs: 'dashboard',
                     resolve: load(['js/controllers/dashboardController.js'], 'app.dashboard')
+                    /*{
 
+                     deps: function ($ocLazyLoad, $auth, $q) {
+                     if ($auth.isAuthenticated())
+                     return $ocLazyLoad.load([
+                     'js/controllers/dashboardController.js'
+                     ]);
+                     else
+                     return $q.reject();
+                     }
+                     }*/
                 })
-                .state('app.knowledgeManagement', {
+                .
+                state('app.knowledgeManagement', {
                     url: '/knowledge/management',
                     templateUrl: 'tpl/knowledge_management/knowledge_management.html',
                     controller: 'knowledgeManagementController',
@@ -72,6 +84,17 @@ angular.module('app')
                     controller: 'SigninFormController',
                     controllerAs: 'signin',
                     resolve: load(['js/controllers/signin.js'], 'access.signin')
+                    /*{
+
+                     deps: function ($ocLazyLoad, $auth, $q) {
+                     if (!$auth.isAuthenticated())
+                     return $ocLazyLoad.load([
+                     'js/controllers/signin.js'
+                     ]);
+                     else
+                     return $q.reject();
+                     }
+                     }*/
                 })
                 .state('access.forgotpwd', {
                     url: '/forgotpwd',
@@ -88,16 +111,16 @@ angular.module('app')
                         function ($ocLazyLoad, $q, $log, $auth) {
 
                             if (!$auth.isAuthenticated() && state != 'access.signin') {
-                                $log.info("!$auth.isAuthenticated() && state != 'access.signin'");
+                                //$log.info("!$auth.isAuthenticated() && state != 'access.signin'");
                                 return $q.reject();
                             }
 
                             if ($auth.isAuthenticated() && state === 'access.signin') {
-                                $log.info("$auth.isAuthenticated() && state === 'access.signin'");
+                                //$log.info("$auth.isAuthenticated() && state === 'access.signin'");
                                 return $q.reject();
                             }
 
-                            $log.info('in deps');
+                            //$log.info('in deps');
 
                             var deferred = $q.defer();
                             var promise = false;
