@@ -1,13 +1,12 @@
-/* 
-
-*/
+@import url('https://fonts.googleapis.com/css?family=Changa|El+Messiri|Exo');
 
 html {
   background-color: #f0f3f4;
 }
 
 body {
-  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /*font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+  font-family: "El Messiri", "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
   line-height: 1.42857143;

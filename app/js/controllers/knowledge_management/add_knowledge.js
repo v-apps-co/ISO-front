@@ -1,18 +1,24 @@
 'use strict';
 
-app.controller('addKnowledgeController', ['$scope','toaster',
+app.controller('AddKnowledgeController', ['$scope', 'toaster',
     function ($scope, toaster) {
+        var vm = this;
 
-        console.log('knowledge controller here!!!!!!!');
+        vm.knObj = {};
+        vm.saveKnowledge = saveKnowledge;
+        vm.resetKnowledge = resetKnowledge;
+
         ////////////
 
-        $scope.saveKnowledge = function () {
-            $scope.resetKnowledge();
+        vm.resetKnowledge();
+
+        function saveKnowledge() {
+            vm.resetKnowledge();
             toaster.pop('success', 'Added Successfully', 'Knowledge Added Successfully');
         };
 
-        $scope.resetKnowledge = function () {
-            $scope.kn = {
+        function resetKnowledge() {
+            vm.knObj = {
                 name: "",
                 dept: "",
                 available: false,
@@ -23,10 +29,7 @@ app.controller('addKnowledgeController', ['$scope','toaster',
                 paper: false,
                 place: "",
                 notes: ""
-            }
-            return $scope.kn;
+            };
         }
-
-        $scope.resetKnowledge();
 
     }]);

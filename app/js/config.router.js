@@ -69,8 +69,8 @@ angular.module('app')
                 .state('app.addKnowledge', {
                     url: '/knowledge/add',
                     templateUrl: 'tpl/knowledge_management/add_knowledge.html',
-                    controller: 'addKnowledgeController',
-                    controllerAs: 'AddKnowledge',
+                    controller: 'AddKnowledgeController',
+                    controllerAs: 'addKnowledge',
                     resolve: load(['js/controllers/knowledge_management/add_knowledge.js'])
                 })
                 // others
