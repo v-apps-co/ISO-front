@@ -1,7 +1,4 @@
-<toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
-
 <div class="hbox hbox-auto-xs hbox-auto-sm">
-
     <div class="col">
         <!-- main header -->
         <div class="bg-light lter b-b wrapper-md">
@@ -9,20 +6,25 @@
                 <div class="col-sm-6 col-xs-12">
                     <h1 class="m-n font-thin h3 text-black"
                         translate="aside.nav.components.knowledgeManagement.ADD_KNOWLEDGE"></h1>
-
                 </div>
             </div>
         </div>
+        <!-- #main header -->
+
+        <!-- content panel -->
         <div class="panel panel-default">
             <div class="panel-body">
-                <form class="form-horizontal" method="">
+                <form class="form-horizontal" name='addKnowledgeForm' novalidate angular-validator
+                      angular-validator-submit='addKnowledge.saveKnowledge()'>
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label"
                                translate="page.knowledgeManagement.KNOWLEDGE_NAME"></label>
 
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" ng-model="addKnowledge.knObj.name">
+                            <input type="text" class="form-control" name="knName" ng-model="addKnowledge.knObj.name"
+                                   required-message="'{{'page.knowledgeManagement.msg.KN_NAME_REQUIRED' | translate}}'"
+                                   required>
                         </div>
                     </div>
 
@@ -31,8 +33,10 @@
                                translate="page.knowledgeManagement.KNOWLEDGE_DEPT"></label>
 
                         <div class="col-sm-8">
-                            <select name="account" class="form-control m-b" ng-model="addKnowledge.knObj.dept">
-                                <option></option>
+                            <select name="knDept" class="form-control m-b" ng-model="addKnowledge.knObj.dept"
+                                    required-message="'{{'page.knowledgeManagement.msg.KN_DEPT_REQUIRED' | translate}}'"
+                                    required>
+                                <option value="" selected>{{ 'common.CHOOSE' | translate}}</option>
                                 <option>Department 1</option>
                                 <option>Department 2</option>
                                 <option>Department 3</option>
@@ -40,82 +44,154 @@
                             </select>
                         </div>
                     </div>
-                    <div class="line line-dashed b-b line-lg pull-in"></div>
+
+                    <!-- radio button switcher between combine form-group #1 & #2 -->
                     <div class="form-group">
                         <label class="col-sm-2 control-label"
                                translate="page.knowledgeManagement.KNOWLEDGE_CLASS"></label>
 
                         <div class="col-sm-8">
-
                             <div class="radio-inline">
                                 <label>
-                                    <input type="radio" name="optionsRadios10" id="optionsRadios10" value="option1"
-                                           checked ng-model="addKnowledge.knObj.available">
+                                    <input type="radio" name="knClass" value="available"
+                                           ng-model="addKnowledge.knObj.class"
+                                           ng-click="addKnowledge.onSelectKnClassAvailable()"
+                                           checked>
                                     <span translate="page.knowledgeManagement.KNOWLEDGE_AVAILABLE"></span>
                                 </label>
                             </div>
                             <div class="radio-inline">
                                 <label>
-                                    <input type="radio" name="optionsRadios10" id="optionsRadios20" value="option2"
-                                           ng-model="addKnowledge.knObj.need">
+                                    <input type="radio" name="knClass" value="need" ng-model="addKnowledge.knObj.class"
+                                           ng-click="addKnowledge.onSelectKnClassNeed()">
                                     <span translate="page.knowledgeManagement.KNOWLEDGE_NEED"></span>
                                 </label>
                             </div>
                         </div>
                     </div>
-                    <div class="line line-dashed b-b line-lg pull-in"></div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label"
-                               translate="page.knowledgeManagement.KNOWLEDGE_KIND"></label>
 
-                        <div class="col-sm-8">
+                    <!-- combine form-group #1 -->
+                    <div ng-if="addKnowledge.isSelectKnClass.available">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"
+                                   translate="page.knowledgeManagement.KNOWLEDGE_KIND"></label>
 
-                            <div class="radio-inline">
-                                <label>
-                                    <input type="radio" name="optionsRadios100" id="optionsRadios100" value="option1"
-                                           checked ng-model="addKnowledge.knObj.clear">
-                                    <span translate="page.knowledgeManagement.KNOWLEDGE_CLEAR"></span>
-                                </label>
+                            <div class="col-sm-8">
+                                <div class="radio-inline">
+                                    <label>
+                                        <input type="radio" name="knKind" value="clear"
+                                               checked ng-model="addKnowledge.knObj.kind"
+                                               validator="addKnowledge.knKindRequireValidator() === true"
+                                               angular-validator-quiet>
+                                        <span translate="page.knowledgeManagement.KNOWLEDGE_CLEAR"></span>
+                                    </label>
+                                </div>
+                                <div class="radio-inline">
+                                    <label>
+                                        <input type="radio" name="knKind" value="embedded"
+                                               ng-model="addKnowledge.knObj.kind"
+                                               validator="addKnowledge.knKindRequireValidator() === true"
+                                               angular-validator-quiet>
+                                        <span translate="page.knowledgeManagement.KNOWLEDGE_EMBEDDED"></span>
+                                    </label>
+                                </div>
+                                <!-- validator message -->
+                                <div ng-if="addKnowledgeForm.knKind.$invalid"
+                                     ng-show="addKnowledgeForm.$submitted"
+                                     ng-messages="addKnowledgeForm.knKind.$error">
+                                    <label class="control-label has-error validationMessage"
+                                           ng-message="angularValidator">{{
+                                        'page.knowledgeManagement.msg.KN_KIND_REQUIRED'| translate}}
+                                    </label>
+                                </div>
                             </div>
-                            <div class="radio-inline">
-                                <label>
-                                    <input type="radio" name="optionsRadios100" id="optionsRadios200" value="option2"
-                                           ng-model="addKnowledge.knObj.embedded">
-                                    <span translate="page.knowledgeManagement.KNOWLEDGE_EMBEDDED"></span>
-                                </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"
+                                   translate="page.knowledgeManagement.KNOWLEDGE_HOW"></label>
+
+                            <div class="col-sm-8">
+                                <div class="radio-inline">
+                                    <label>
+                                        <input type="radio" name="knHow" value="elec"
+                                               checked ng-model="addKnowledge.knObj.how"
+                                               validator="addKnowledge.knHowRequireValidator() === true"
+                                               angular-validator-quiet>
+                                        <span translate="page.knowledgeManagement.KNOWLEDGE_ELEC"></span>
+                                    </label>
+                                </div>
+                                <div class="radio-inline">
+                                    <label>
+                                        <input type="radio" name="knHow" value="paper"
+                                               ng-model="addKnowledge.knObj.how"
+                                               validator="addKnowledge.knHowRequireValidator() === true"
+                                               angular-validator-quiet>
+                                        <span translate="page.knowledgeManagement.KNOWLEDGE_PAPER"></span>
+                                    </label>
+                                </div>
+                                <!-- validator message -->
+                                <div ng-if="addKnowledgeForm.knHow.$invalid"
+                                     ng-show="addKnowledgeForm.$submitted"
+                                     ng-messages="addKnowledgeForm.knHow.$error">
+                                    <label class="control-label has-error validationMessage"
+                                           ng-message="angularValidator">{{
+                                        'page.knowledgeManagement.msg.KN_HOW_REQUIRED'| translate}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"
+                                   translate="page.knowledgeManagement.KNOWLEDGE_PLACE"></label>
+
+                            <div class="col-sm-8">
+                                <input type="text" name="knPlace" class="form-control"
+                                       ng-model="addKnowledge.knObj.place"
+                                       required-message="'{{'page.knowledgeManagement.msg.KN_PLACE_REQUIRED' | translate}}'"
+                                       required>
                             </div>
                         </div>
                     </div>
-                    <div class="line line-dashed b-b line-lg pull-in"></div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label"
-                               translate="page.knowledgeManagement.KNOWLEDGE_HOW"></label>
+                    <!-- #combine form-group -->
 
-                        <div class="col-sm-8">
+                    <!-- combine form-group #2 -->
+                    <div ng-if="addKnowledge.isSelectKnClass.need">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"
+                                   translate="page.knowledgeManagement.KNOWLEDGE_PERIOD"></label>
 
-                            <div class="radio-inline">
-                                <label>
-                                    <input type="radio" name="optionsRadios1000" id="optionsRadios1000" value="option1"
-                                           checked ng-model="addKnowledge.knObj.elec">
-                                    <span translate="page.knowledgeManagement.KNOWLEDGE_ELEC"></span>
-                                </label>
+                            <div class="col-sm-8">
+                                <input type="text" name="knPeriod" class="form-control"
+                                       ng-model="addKnowledge.knObj.period"
+                                       required-message="'{{'page.knowledgeManagement.msg.KN_PERIOD_REQUIRED' | translate}}'"
+                                       required/>
                             </div>
-                            <div class="radio-inline">
-                                <label>
-                                    <input type="radio" name="optionsRadios1000" id="optionsRadios2000" value="option2"
-                                           ng-model="addKnowledge.knObj.paper">
-                                    <span translate="page.knowledgeManagement.KNOWLEDGE_PAPER"></span>
-                                </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"
+                                   translate="page.knowledgeManagement.KNOWLEDGE_PLAN"></label>
+
+                            <div class="col-sm-8">
+                                <textarea name="knPlan" class="form-control" ng-model="addKnowledge.knObj.plan"
+                                          required-message="'{{'page.knowledgeManagement.msg.KN_PLAN_REQUIRED' | translate}}'"
+                                          required/>
                             </div>
                         </div>
                     </div>
-                    <div class="line line-dashed b-b line-lg pull-in"></div>
+                    <!-- #combine form-group -->
+
                     <div class="form-group">
                         <label class="col-sm-2 control-label"
-                               translate="page.knowledgeManagement.KNOWLEDGE_PLACE"></label>
+                               translate="page.knowledgeManagement.MANAGER_NAME"></label>
 
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" ng-model="addKnowledge.knObj.place">
+                            <input type="text" name="knManager" class="form-control"
+                                   ng-model="addKnowledge.knObj.managerName"
+                                   required-message="'{{'page.knowledgeManagement.msg.KN_MANAGER_REQUIRED' | translate}}'"
+                                   required/>
                         </div>
                     </div>
 
@@ -124,27 +200,32 @@
                                translate="page.knowledgeManagement.KNOWLEDGE_NOTES"></label>
 
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" ng-model="addKnowledge.knObj.notes">
+                            <textarea name="knNotes" class="form-control" ng-model="addKnowledge.knObj.notes"/>
                         </div>
                     </div>
 
 
                     <div class="line line-dashed b-b line-lg pull-in"></div>
+
                     <div class="form-group">
                         <div class="col-sm-4 col-sm-offset-2">
-                            <button type="button" class="btn btn-primary" ng-click="addKnowledge.saveKnowledge()">
+                            <button type="submit" class="btn btn-primary">
                                 <span translate="common.SAVE"></span>
                             </button>
-                            <button type="button" class="btn btn-danger" ng-click="addKnowledge.resetKnowledge()">
+                            <button type="button" class="btn btn-danger"
+                                    ng-click="addKnowledgeForm.reset();addKnowledge.initFormValues();addKnowledge.initIsSelectKnClassValues()">
                                 <span translate="common.CANCEL"></span>
                             </button>
                         </div>
                     </div>
+
                 </form>
+
             </div>
         </div>
-    </div>
+        <!-- #content panel -->
 
+    </div>
 </div>
 
 

@@ -19,10 +19,10 @@
       "EMAIL": "Email",
       "components": {
         "COMPONENTS": "Components",
-        "knowledgeManagement" :{
-          "KNOWLEDGE_MANAGEMENT_PROCEDURES" :"Knowledge Management",
-          "KNOWLEDGE_MANAGEMENT" :"Knowledge Management",
-          "ADD_KNOWLEDGE":"Add Knowledge"
+        "knowledgeManagement": {
+          "KNOWLEDGE_MANAGEMENT_PROCEDURES": "Knowledge Management",
+          "KNOWLEDGE_MANAGEMENT": "Knowledge Management",
+          "ADD_KNOWLEDGE": "Add Knowledge"
         },
         "pages": {
           "PAGES": "Pages",
@@ -39,41 +39,56 @@
       }
     }
   },
-  "msg": {
-    "AUTH_ERROR": "Username or Password not right",
-    "SERVER_ERROR": "Server Error"
-  },
   "page": {
     "signin": {
       "LOGIN_BTN": "Login",
       "FRGT_PASSWORD": "Forgot password ?"
     },
-    "knowledgeManagement" : {
-      "KNOWLEDGE_NAME":"Knowledge name",
-      "KNOWLEDGE_DEPT":"Knowledge Department",
-      "KNOWLEDGE_CLASS":"Knowledge Classification",
-      "KNOWLEDGE_AVAILABLE":"Available",
-      "KNOWLEDGE_NEED":"Department need",
-      "KNOWLEDGE_KIND":"Knowledge kind",
-      "KNOWLEDGE_CLEAR":"Clear Knowledge",
-      "KNOWLEDGE_EMBEDDED":"Embedded Knowledge",
-      "KNOWLEDGE_HOW":"Knowledge is",
-      "KNOWLEDGE_ELEC":"Electronic",
-      "KNOWLEDGE_PAPER":"Paper",
-      "KNOWLEDGE_PLACE":"Saved Place",
-      "KNOWLEDGE_NOTES":"Notes",
-      "KNOWLEDGE_ADD":"Add Knowledge",
-      "KNOWLEDGE_RESP":"Responsible",
-      "KNOWLEDGE_STATUS":"Status"
+    "knowledgeManagement": {
+      "msg": {
+        "KN_NAME_REQUIRED": "Enter knowledge name",
+        "KN_DEPT_REQUIRED": "Choose department",
+        "KN_PLACE_REQUIRED": "Enter knowledge place",
+        "KN_KIND_REQUIRED": "Choose knowledge kind",
+        "KN_HOW_REQUIRED": "Choose knowledge how",
+        "KN_PERIOD_REQUIRED": "Enter knowledge period",
+        "KN_PLAN_REQUIRED": "Enter work plan",
+        "KN_MANAGER_REQUIRED":"Enter manager name"
+      },
+      "KNOWLEDGE_NAME": "Knowledge name",
+      "KNOWLEDGE_DEPT": "Knowledge Department",
+      "KNOWLEDGE_CLASS": "Knowledge Classification",
+      "KNOWLEDGE_AVAILABLE": "Available",
+      "KNOWLEDGE_NEED": "Department need",
+      "KNOWLEDGE_KIND": "Knowledge kind",
+      "KNOWLEDGE_CLEAR": "Clear Knowledge",
+      "KNOWLEDGE_EMBEDDED": "Embedded Knowledge",
+      "KNOWLEDGE_HOW": "Knowledge is",
+      "KNOWLEDGE_ELEC": "Electronic",
+      "KNOWLEDGE_PAPER": "Paper",
+      "KNOWLEDGE_PLACE": "Saved Place",
+      "KNOWLEDGE_NOTES": "Notes",
+      "KNOWLEDGE_ADD": "Add Knowledge",
+      "KNOWLEDGE_RESP": "Responsible",
+      "KNOWLEDGE_STATUS": "Status",
+      "KNOWLEDGE_PERIOD": "Period",
+      "KNOWLEDGE_PLAN": "Work Plan",
+      "MANAGER_NAME": "Manager Name"
     }
+  },
+  "msg": {
+    "AUTH_ERROR": "Username or Password not right",
+    "SERVER_ERROR": "Server Error",
+    "REQUIRED_FIELD": "This Field is required"
   },
   "common": {
     "USERNAME": "Username",
     "PASSWORD": "Password",
-    "LOGOUT":"Logout",
-    "SAVE" : "save",
-    "CANCEL" : "cancel",
-    "NEXT" : "Next",
-    "PREVIOUS" : "Previous"
+    "LOGOUT": "Logout",
+    "SAVE": "save",
+    "CANCEL": "cancel",
+    "NEXT": "Next",
+    "PREVIOUS": "Previous",
+    "CHOOSE": "Choose"
   }
 }

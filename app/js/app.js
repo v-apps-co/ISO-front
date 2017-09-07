@@ -17,7 +17,8 @@ angular.module('app', [
     'satellizer',
     'base64',
     'httpStatusCodes',
-    'toaster'
+    'toaster',
+    'angularValidator'
 ]);
 
 

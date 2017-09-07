@@ -1,5 +1,4 @@
 {
-
   "header": {
     "navbar": {
       "UPLOAD": "Upload",
@@ -19,10 +18,10 @@
       "DASHBOARD": "لوحة التحكم",
       "EMAIL": "البريد الالكتروني",
       "components": {
-        "knowledgeManagement" :{
-          "KNOWLEDGE_MANAGEMENT_PROCEDURES" :"إجراءات إدارة المعرفة",
-          "KNOWLEDGE_MANAGEMENT" :"إدارة المعرفة",
-          "ADD_KNOWLEDGE":"إضافة معرفة"
+        "knowledgeManagement": {
+          "KNOWLEDGE_MANAGEMENT_PROCEDURES": "إجراءات إدارة المعرفة",
+          "KNOWLEDGE_MANAGEMENT": "إدارة المعرفة",
+          "ADD_KNOWLEDGE": "إضافة معرفة"
         },
         "pages": {
           "PAGES": "الصفحات",
@@ -34,41 +33,56 @@
       }
     }
   },
-  "msg": {
-    "AUTH_ERROR": "أسم المستخدم او كلمة المرور غير صحيحة",
-    "SERVER_ERROR": "خطأ في السيرفر"
-  },
   "page": {
     "signin": {
       "LOGIN_BTN": "دخول",
       "FRGT_PASSWORD": "نسيت كلمة المرور ؟"
     },
-    "knowledgeManagement" : {
-      "KNOWLEDGE_NAME":"إسم المعرفة",
-      "KNOWLEDGE_DEPT":"إدارة المعرفة",
-      "KNOWLEDGE_CLASS":"تصنيف المعرفة",
-      "KNOWLEDGE_AVAILABLE":"معرفة متوفرة",
-      "KNOWLEDGE_NEED":"تحتاج إليها الإدارة",
-      "KNOWLEDGE_KIND":"نوع المعرفة",
-      "KNOWLEDGE_CLEAR":"صريحة",
-      "KNOWLEDGE_EMBEDDED":"ضمنية",
-      "KNOWLEDGE_HOW":"صيغة المعرفة",
-      "KNOWLEDGE_ELEC":"إلكترونية",
-      "KNOWLEDGE_PAPER":"ورقية",
-      "KNOWLEDGE_PLACE":"مكان الحفظ",
-      "KNOWLEDGE_NOTES":"ملاحظات",
-      "KNOWLEDGE_ADD":"إضافة",
-      "KNOWLEDGE_RESP":"المسئول",
-      "KNOWLEDGE_STATUS":"الحالة"
+    "knowledgeManagement": {
+      "msg": {
+        "KN_NAME_REQUIRED": "ادخل اسم المعرفة",
+        "KN_DEPT_REQUIRED": "اختر الادارة",
+        "KN_PLACE_REQUIRED": "ادخل مكان الحفظ",
+        "KN_KIND_REQUIRED": "اختر نوع المعرفة",
+        "KN_HOW_REQUIRED": "اختر صيغة المعرفة",
+        "KN_PERIOD_REQUIRED": "ادخل الفترة الزمنية",
+        "KN_PLAN_REQUIRED": "ادخل خطة العمل",
+        "KN_MANAGER_REQUIRED": "ادخل اسم المسؤول"
+      },
+      "KNOWLEDGE_NAME": "إسم المعرفة",
+      "KNOWLEDGE_DEPT": "إدارة المعرفة",
+      "KNOWLEDGE_CLASS": "تصنيف المعرفة",
+      "KNOWLEDGE_AVAILABLE": "معرفة متوفرة",
+      "KNOWLEDGE_NEED": "تحتاج إليها الإدارة",
+      "KNOWLEDGE_KIND": "نوع المعرفة",
+      "KNOWLEDGE_CLEAR": "صريحة",
+      "KNOWLEDGE_EMBEDDED": "ضمنية",
+      "KNOWLEDGE_HOW": "صيغة المعرفة",
+      "KNOWLEDGE_ELEC": "إلكترونية",
+      "KNOWLEDGE_PAPER": "ورقية",
+      "KNOWLEDGE_PLACE": "مكان الحفظ",
+      "KNOWLEDGE_NOTES": "ملاحظات",
+      "KNOWLEDGE_ADD": "إضافة",
+      "KNOWLEDGE_RESP": "المسئول",
+      "KNOWLEDGE_STATUS": "الحالة",
+      "KNOWLEDGE_PERIOD": "الفتره الزمنية",
+      "KNOWLEDGE_PLAN": "خطة العمل",
+      "MANAGER_NAME": "اسم المسؤول"
     }
+  },
+  "msg": {
+    "AUTH_ERROR": "أسم المستخدم او كلمة المرور غير صحيحة",
+    "SERVER_ERROR": "خطأ في السيرفر",
+    "REQUIRED_FIELD": "هذا الحقل مطلوب"
   },
   "common": {
     "USERNAME": "أسم المستخدم",
     "PASSWORD": "كلمة المرور",
-    "LOGOUT":"تسجيل خروج",
-    "SAVE" : "حفظ",
-    "CANCEL" : "إلغاء",
-    "NEXT" : "التالي",
-    "PREVIOUS" : "السابق"
+    "LOGOUT": "تسجيل خروج",
+    "SAVE": "حفظ",
+    "CANCEL": "إلغاء",
+    "NEXT": "التالي",
+    "PREVIOUS": "السابق",
+    "CHOOSE": "أختر"
   }
 }

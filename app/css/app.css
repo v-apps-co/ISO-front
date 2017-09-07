@@ -5232,3 +5232,7 @@ div.dataTables_filter {
 .collapse-nav{
 
 }
+
+.control-label.has-error.validationMessage{
+  color: #a94442;
+}
