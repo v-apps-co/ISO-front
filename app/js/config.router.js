@@ -71,7 +71,7 @@ angular.module('app')
                     templateUrl: 'tpl/knowledge_management/add_knowledge.html',
                     controller: 'AddKnowledgeController',
                     controllerAs: 'addKnowledge',
-                    resolve: load(['js/controllers/knowledge_management/add_knowledge.js'])
+                    resolve: load(['angularFileUpload', 'js/controllers/knowledge_management/add_knowledge.js'])
                 })
                 // others
                 .state('access', {

@@ -67,7 +67,12 @@
       "KNOWLEDGE_STATUS": "الحالة",
       "KNOWLEDGE_PERIOD": "الفتره الزمنية",
       "KNOWLEDGE_PLAN": "خطة العمل",
-      "MANAGER_NAME": "اسم المسؤول"
+      "MANAGER_NAME": "اسم المسؤول",
+      "DRAGGED_ATTACHMENTS": "المرفقات المدرجة",
+      "SELECT_ATTACHMENTS": "أختر المرفقات",
+      "DRAG_AND_DROP": "إسحب وأسقط ملفاتك هنا",
+      "QUEUE_LENGTH": "عدد الملفات المدرجة",
+      "UPLOAD_NOTE": "ملاحظة : يمكنك رفع حتي 10 ملفات في المرة الواحدة"
     }
   },
   "msg": {
@@ -83,6 +88,19 @@
     "CANCEL": "إلغاء",
     "NEXT": "التالي",
     "PREVIOUS": "السابق",
-    "CHOOSE": "أختر"
+    "CHOOSE": "أختر",
+    "OR": "أو",
+    "NAME": "الأسم",
+    "SIZE": "الحجم",
+    "ACTION": "إجراء",
+    "STATUS": "الحالة",
+    "PROGRESS": "تقدم",
+    "MB": "ميغابيت",
+    "REMOVE_ALL": "حذف الكل",
+    "CANCEL_ALL": "إلغاء الكل",
+    "UPLOAD_ALL": "رفع الكل",
+    "UPLOAD": "رفع",
+    "CANCEL": "إلغاء",
+    "REMOVE": "حذف"
   }
 }

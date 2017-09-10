@@ -73,7 +73,12 @@
       "KNOWLEDGE_STATUS": "Status",
       "KNOWLEDGE_PERIOD": "Period",
       "KNOWLEDGE_PLAN": "Work Plan",
-      "MANAGER_NAME": "Manager Name"
+      "MANAGER_NAME": "Manager Name",
+      "DRAGGED_ATTACHMENTS": "Upload Queue",
+      "SELECT_ATTACHMENTS": "Select Files",
+      "DRAG_AND_DROP": "Drag & Drop Your Files",
+      "QUEUE_LENGTH": "Queue Length",
+      "UPLOAD_NOTE":"Note: Max 10 files at a time"
     }
   },
   "msg": {
@@ -89,6 +94,19 @@
     "CANCEL": "cancel",
     "NEXT": "Next",
     "PREVIOUS": "Previous",
-    "CHOOSE": "Choose"
+    "CHOOSE": "Choose",
+    "OR":"OR",
+    "NAME":"Name",
+    "SIZE":"Size",
+    "ACTION":"Action",
+    "STATUS":"Status",
+    "PROGRESS":"Progress",
+    "MB":"MByte",
+    "REMOVE_ALL":"Remove All",
+    "CANCEL_ALL":"Cancel All",
+    "UPLOAD_ALL":"Upload All",
+    "UPLOAD":"Upload",
+    "CANCEL":"Cancel",
+    "REMOVE":"Remove"
   }
 }

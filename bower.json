@@ -44,6 +44,7 @@
     "bootstrap-touchspin": "~3.0.1",
     "bootstrap-wysiwyg": "*",
     "plugins": "datatables/plugins#~1.0.1",
-    "datatables": "~1.10.4"
+    "datatables": "~1.10.4",
+    "angular-file-upload": "2.5.0"
   }
 }
